@@ -1,0 +1,23 @@
+﻿# REST Api:
+    1- creation du model
+    
+    2- create DataContext class
+    
+    3- on "appsettings.json" add:
+            "ConnectionStrings": {
+                "ConnectionStr": "Server=DESKTOP-JTK7SB0;Database=herosdb;Trusted_Connection=True"
+            },
+    
+    4- on "Program.cs" we add:
+            builder.Services.AddDbContext<DataContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionStr"));
+            });
+            
+    5- create migration with EntityFramework
+    
+    6- update database with EF
+    
+    7- creation du controller :
+        -> [Route("api/[controller]")] : indique le endpoint
+        -> add REST methodes
